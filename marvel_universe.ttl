@@ -1,0 +1,77 @@
+@prefix dbo:  <http://dbpedia.org/ontology/> .
+@prefix dbr:  <http://dbpedia.org/resource/> .
+@prefix fhkb: <http://www.example.com/genealogy.owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rel:  <https://www.perceive.net/schemas/20031015/relationship/#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/James_Rhodes_%28Marvel_Cinematic_Universe%29>
+        foaf:knows  <http://dbpedia.org/resource/Tony_Stark_%28Marvel_Cinematic_Universe%29> ;
+        foaf:nick   "War Machine" .
+
+<http://dbpedia.org/resource/Stephen_Strange_%28Marvel_Cinematic_Universe%29>
+        foaf:knows   <http://dbpedia.org/resource/Christine_Palmer_%28Marvel_Cinematic_Universe%29> ;
+        foaf:nick    "Doktor-Strange" ;
+        rel:enemyOf  dbr:Kaecilius .
+
+<http://dbpedia.org/resource/Avengers_%28comics%29>
+        rdf:List    ( <http://dbpedia.org/resource/Tony_Stark_%28Marvel_Cinematic_Universe%29> <http://dbpedia.org/resource/Steve_Rogers_%28Marvel_Cinematic_Universe%29> <http://dbpedia.org/resource/Thor_%28Marvel_Cinematic_Universe%29> <http://dbpedia.org/resource/Bruce_Banner_%28Marvel_Cinematic_Universe%29> <http://dbpedia.org/resource/Peter_Parker_%28Marvel_Cinematic_Universe%29> <http://dbpedia.org/resource/Stephen_Strange_%28Marvel_Cinematic_Universe%29> ) ;
+        rdfs:label  "Avengers" .
+
+<http://dbpedia.org/resource/Tony_Stark_%28Marvel_Cinematic_Universe%29>
+        foaf:knows  <http://dbpedia.org/resource/James_Rhodes_%28Marvel_Cinematic_Universe%29> , <http://dbpedia.org/resource/Pepper_Potts_%28Marvel_Cinematic_Universe%29> ;
+        foaf:nick   "Iron Man" .
+
+<http://dbpedia.org/resource/Thor_%28Marvel_Cinematic_Universe%29>
+        dbo:birthDate     "1979-07-11"^^xsd:date ;
+        fhkb:isBrotherOf  <http://dbpedia.org/resource/Loki_%28Marvel_Cinematic_Universe%29> ;
+        fhkb:isSonOf      <http://dbpedia.org/resource/Odin_%28Marvel_Cinematic_Universe%29> , <http://dbpedia.org/resource/Frigga_%28Marvel_Cinematic_Universe%29> .
+
+<http://dbpedia.org/resource/Christine_Palmer_%28Marvel_Cinematic_Universe%29>
+        foaf:knows  <http://dbpedia.org/resource/Stephen_Strange_%28Marvel_Cinematic_Universe%29> , dbr:Nicodemus_West .
+
+<http://dbpedia.org/resource/Bucky_Barnes_%28Marvel_Cinematic_Universe%29>
+        foaf:knows  <http://dbpedia.org/resource/Steve_Rogers_%28Marvel_Cinematic_Universe%29> ;
+        foaf:nick   "Zimowy Żołnierz" .
+
+dbr:Ancient_One  <file:///app/is-a-mentor-of>
+                dbr:Kaecilius , <http://dbpedia.org/resource/Wong_%28Marvel_Cinematic_Universe%29> , <http://dbpedia.org/resource/Stephen_Strange_%28Marvel_Cinematic_Universe%29> , dbr:Baron_Mordo ;
+        rel:enemyOf                   dbr:Kaecilius .
+
+<http://dbpedia.org/resource/Peter_Parker_%28Marvel_Cinematic_Universe%29>
+        <file:///app/hasPowers>  true ;
+        <file:///app/powers>     [ rdf:type     rdf:Bag ;
+                                   rdf:power_1  "Wall-Crawling" ;
+                                   rdf:power_2  "Super Strength" ;
+                                   rdf:power_4  "Web-Shooting" ;
+                                   rdf:power_5  "Spider-Sense"
+                                 ] ;
+        dbo:height               175.3 ;
+        foaf:knows               <http://dbpedia.org/resource/Ned_Leeds_%28Marvel_Cinematic_Universe%29dbr:Ned_Leeds> , <http://dbpedia.org/resource/MJ_%28Marvel_Cinematic_Universe%29> ;
+        foaf:nick                "Spiderman" .
+
+<http://dbpedia.org/resource/Wade_Wilson_%28film_character%29>
+        foaf:knows   dbr:Vanessa_Fisk ;
+        foaf:nick    "Deadpool" ;
+        rel:enemyOf  dbr:Francis_Fanny .
+
+<http://dbpedia.org/resource/Colossus_%28character%29>
+        <file:///app/is-a-mentor-of>  <http://dbpedia.org/resource/Wade_Wilson_%28film_character%29> .
+
+dbr:Kaecilius  rel:enemyOf  [ rdf:type     rdf:Bag ;
+                              rdf:enemy_1  <http://dbpedia.org/resource/Stephen_Strange_%28Marvel_Cinematic_Universe%29> ;
+                              rdf:enemy_2  dbr:Baron_Mordo ;
+                              rdf:enemy_3  dbr:Ancient_One
+                            ] .
+
+<http://dbpedia.org/resource/Steve_Rogers_%28Marvel_Cinematic_Universe%29>
+        foaf:knows  <http://dbpedia.org/resource/Bucky_Barnes_%28Marvel_Cinematic_Universe%29> , <http://dbpedia.org/resource/Peggy_Carter_%28Marvel_Cinematic_Universe%29> ;
+        foaf:nick   "Kapitan Ameryka" .
+
+<http://dbpedia.org/resource/Bruce_Banner_%28Marvel_Cinematic_Universe%29>
+        fhkb:isSonOf  <file:///app/nick-Nolte> ;
+        foaf:knows    dbr:Betty_Ross ;
+        foaf:nick     "Hulk" ;
+        rel:enemyOf   dbr:Thunderbolt_Ross .
